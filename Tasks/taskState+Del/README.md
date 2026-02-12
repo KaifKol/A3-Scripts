@@ -5,7 +5,9 @@ this addAction [
         params ["_target", "_caller", "_actionId"]; 
   
         ["1", "SUCCEEDED", true] remoteExec ["BIS_fnc_taskSetState", 0, true]; // taskNumber, taskState, showHint
-  
+ 
+        [_target] remoteExec ["deleteVehicle", 2]; 
+ 
         _target remoteExec ["removeAllActions", 0]; 
     }, 
     nil, 
@@ -19,4 +21,4 @@ this addAction [
 ```
 * Add to object init
 * Remove comments
-* *Server-side
+* Server-side
