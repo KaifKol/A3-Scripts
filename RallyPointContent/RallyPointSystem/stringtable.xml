@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="RPC_RallyPointSystem">
+  <Package name="RPC_RallyPointSystem">
+
+    <!-- Категория модулей -->
+    <Key ID="str_rpc_cat_modules">
+      <Original>RallyPoint Modules</Original>
+      <Russian>Модули точек сбора</Russian>
+    </Key>
+
+    <!-- Название модуля -->
+    <Key ID="str_rpc_rps_module_name">
+      <Original>Rally Point System</Original>
+      <Russian>Система точек сбора</Russian>
+    </Key>
+
+    <!-- Описание модуля -->
+    <Key ID="str_rpc_rps_desc_line1">
+      <Original>Synchronize the module with the desired teleport object</Original>
+      <Russian>Синхронизируйте модуль с желаемым объектом телепорта</Russian>
+    </Key>
+    <Key ID="str_rpc_rps_desc_line2">
+      <Original>The teleport object will allow using the rally point system</Original>
+      <Russian>Объект телепорта позволит пользоваться системой точек развертывания</Russian>
+    </Key>
+    <Key ID="str_rpc_rps_desc_line3">
+      <Original>TvT compatibility not tested</Original>
+      <Russian>Работоспособность для TvT не проверялась</Russian>
+    </Key>
+
+    <!-- Атрибуты -->
+    <Key ID="str_rpc_attr_rpclass_name">
+      <Original>Deployment point object class</Original>
+      <Russian>Класс объекта точки развертывания</Russian>
+    </Key>
+    <Key ID="str_rpc_attr_rpclass_tooltip">
+      <Original>Enter the class of the object to be used as a deployment point</Original>
+      <Russian>Введите класс объекта, который будет использоваться в качестве точки развертывания</Russian>
+    </Key>
+
+    <Key ID="str_rpc_attr_hold_name">
+      <Original>Disable duration</Original>
+      <Russian>Длительность отключения</Russian>
+    </Key>
+    <Key ID="str_rpc_attr_hold_tooltip">
+      <Original>Enter teleporter disable duration, in seconds</Original>
+      <Russian>Введите длительность отключения телепортера, в секундах</Russian>
+    </Key>
+
+    <Key ID="str_rpc_attr_window_name">
+      <Original>Enable duration</Original>
+      <Russian>Длительность включения</Russian>
+    </Key>
+    <Key ID="str_rpc_attr_window_tooltip">
+      <Original>Enter teleporter enable duration, in seconds</Original>
+      <Russian>Введите длительность включения телепортера, в секундах</Russian>
+    </Key>
+
+    <Key ID="str_rpc_attr_alarm_name">
+      <Original>Siren</Original>
+      <Russian>Сирена</Russian>
+    </Key>
+    <Key ID="str_rpc_attr_alarm_tooltip">
+      <Original>Enable siren on teleport activation?</Original>
+      <Russian>Включить ли сирену при активации телепорта?</Russian>
+    </Key>
+
+    <Key ID="str_rpc_attr_alarmsound_name">
+      <Original>Siren sound class</Original>
+      <Russian>Класс звука сирены</Russian>
+    </Key>
+    <Key ID="str_rpc_attr_alarmsound_tooltip">
+      <Original>Enter desired siren sound class</Original>
+      <Russian>Введите класс желаемого звука сирены</Russian>
+    </Key>
+
+  </Package>
+</Project>
