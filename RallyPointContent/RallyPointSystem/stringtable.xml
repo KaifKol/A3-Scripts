@@ -1,78 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="RPC_RallyPointSystem">
   <Package name="RPC_RallyPointSystem">
-
-    <!-- Категория модулей -->
-    <Key ID="str_rpc_cat_modules">
-      <Original>RallyPoint Modules</Original>
-      <Russian>Модули точек сбора</Russian>
-    </Key>
-
-    <!-- Название модуля -->
-    <Key ID="str_rpc_rps_module_name">
-      <Original>Rally Point System</Original>
-      <Russian>Система точек сбора</Russian>
-    </Key>
-
-    <!-- Описание модуля -->
-    <Key ID="str_rpc_rps_desc_line1">
-      <Original>Synchronize the module with the desired teleport object</Original>
-      <Russian>Синхронизируйте модуль с желаемым объектом телепорта</Russian>
-    </Key>
-    <Key ID="str_rpc_rps_desc_line2">
-      <Original>The teleport object will allow using the rally point system</Original>
-      <Russian>Объект телепорта позволит пользоваться системой точек развертывания</Russian>
-    </Key>
-    <Key ID="str_rpc_rps_desc_line3">
-      <Original>TvT compatibility not tested</Original>
-      <Russian>Работоспособность для TvT не проверялась</Russian>
-    </Key>
-
-    <!-- Атрибуты -->
-    <Key ID="str_rpc_attr_rpclass_name">
-      <Original>Deployment point object class</Original>
-      <Russian>Класс объекта точки развертывания</Russian>
-    </Key>
-    <Key ID="str_rpc_attr_rpclass_tooltip">
-      <Original>Enter the class of the object to be used as a deployment point</Original>
-      <Russian>Введите класс объекта, который будет использоваться в качестве точки развертывания</Russian>
-    </Key>
-
-    <Key ID="str_rpc_attr_hold_name">
-      <Original>Disable duration</Original>
-      <Russian>Длительность отключения</Russian>
-    </Key>
-    <Key ID="str_rpc_attr_hold_tooltip">
-      <Original>Enter teleporter disable duration, in seconds</Original>
-      <Russian>Введите длительность отключения телепортера, в секундах</Russian>
-    </Key>
-
-    <Key ID="str_rpc_attr_window_name">
-      <Original>Enable duration</Original>
-      <Russian>Длительность включения</Russian>
-    </Key>
-    <Key ID="str_rpc_attr_window_tooltip">
-      <Original>Enter teleporter enable duration, in seconds</Original>
-      <Russian>Введите длительность включения телепортера, в секундах</Russian>
-    </Key>
-
-    <Key ID="str_rpc_attr_alarm_name">
-      <Original>Siren</Original>
-      <Russian>Сирена</Russian>
-    </Key>
-    <Key ID="str_rpc_attr_alarm_tooltip">
-      <Original>Enable siren on teleport activation?</Original>
-      <Russian>Включить ли сирену при активации телепорта?</Russian>
-    </Key>
-
-    <Key ID="str_rpc_attr_alarmsound_name">
-      <Original>Siren sound class</Original>
-      <Russian>Класс звука сирены</Russian>
-    </Key>
-    <Key ID="str_rpc_attr_alarmsound_tooltip">
-      <Original>Enter desired siren sound class</Original>
-      <Russian>Введите класс желаемого звука сирены</Russian>
-    </Key>
-
+    <Container name="RPS">
+      <Key ID="STR_RPS_TELEPORTWINDOWDURATION_TOOLTIP">
+        <Original>Enter the duration (in seconds) for which the teleporter remains active</Original>
+        <English>Enter the duration (in seconds) for which the teleporter remains active</English>
+        <Czech>Enter the duration (in seconds) for which the teleporter remains active</Czech>
+        <French>Enter the duration (in seconds) for which the teleporter remains active</French>
+        <Spanish>Enter the duration (in seconds) for which the teleporter remains active</Spanish>
+        <Italian>Enter the duration (in seconds) for which the teleporter remains active</Italian>
+        <Polish>Enter the duration (in seconds) for which the teleporter remains active</Polish>
+        <Portuguese>Enter the duration (in seconds) for which the teleporter remains active</Portuguese>
+        <Russian>Введите длительность (в секундах) периода включения</Russian>
+        <German>Enter the duration (in seconds) for which the teleporter remains active</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTINITIALACTIVATIONDELAY_DISPLAYNAME">
+        <Original>Initial Activation Delay</Original>
+        <English>Initial Activation Delay</English>
+        <Czech>Initial Activation Delay</Czech>
+        <French>Initial Activation Delay</French>
+        <Spanish>Initial Activation Delay</Spanish>
+        <Italian>Initial Activation Delay</Italian>
+        <Polish>Initial Activation Delay</Polish>
+        <Portuguese>Initial Activation Delay</Portuguese>
+        <Russian>Задержка включения</Russian>
+        <German>Initial Activation Delay</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTINITIALACTIVATIONDELAY_TOOLTIP">
+        <Original>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Original>
+        <English>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</English>
+        <Czech>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Czech>
+        <French>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</French>
+        <Spanish>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Spanish>
+        <Italian>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Italian>
+        <Polish>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Polish>
+        <Portuguese>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</Portuguese>
+        <Russian>Введите длительность (в секундах) периода отключения</Russian>
+        <German>Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTHOLDDURATION_DISPLAYNAME">
+        <Original>Deactivation duration</Original>
+        <English>Deactivation duration</English>
+        <Czech>Deactivation duration</Czech>
+        <French>Deactivation duration</French>
+        <Spanish>Deactivation duration</Spanish>
+        <Italian>Deactivation duration</Italian>
+        <Polish>Deactivation duration</Polish>
+        <Portuguese>Deactivation duration</Portuguese>
+        <Russian>Длительность отключения</Russian>
+        <German>Deactivation duration</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTWINDOWDURATION_DISPLAYNAME">
+        <Original>Activation duration</Original>
+        <English>Activation duration</English>
+        <Czech>Activation duration</Czech>
+        <French>Activation duration</French>
+        <Spanish>Activation duration</Spanish>
+        <Italian>Activation duration</Italian>
+        <Polish>Activation duration</Polish>
+        <Portuguese>Activation duration</Portuguese>
+        <Russian>Длительность включения</Russian>
+        <German>Activation duration</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTALARM_TOOLTIP">
+        <Original>Enable siren sound when teleport is activated?</Original>
+        <English>Enable siren sound when teleport is activated?</English>
+        <Czech>Enable siren sound when teleport is activated?</Czech>
+        <French>Enable siren sound when teleport is activated?</French>
+        <Spanish>Enable siren sound when teleport is activated?</Spanish>
+        <Italian>Enable siren sound when teleport is activated?</Italian>
+        <Polish>Enable siren sound when teleport is activated?</Polish>
+        <Portuguese>Enable siren sound when teleport is activated?</Portuguese>
+        <Russian>Включить сирену при активации телепорта?</Russian>
+        <German>Enable siren sound when teleport is activated?</German>
+      </Key>
+      <Key ID="STR_RPS_RPCLASS_TOOLTIP">
+        <Original>Enter the class name of the object to be used as the rally point</Original>
+        <English>Enter the class name of the object to be used as the rally point</English>
+        <Czech>Enter the class name of the object to be used as the rally point</Czech>
+        <French>Enter the class name of the object to be used as the rally point</French>
+        <Spanish>Enter the class name of the object to be used as the rally point</Spanish>
+        <Italian>Enter the class name of the object to be used as the rally point</Italian>
+        <Polish>Enter the class name of the object to be used as the rally point</Polish>
+        <Portuguese>Enter the class name of the object to be used as the rally point</Portuguese>
+        <Russian>Введите класс объекта для спавна точки развертывания </Russian>
+        <German>Enter the class name of the object to be used as the rally point</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTALARMSOUNDCLASS_TOOLTIP">
+        <Original>Enter the desired sound class for the siren</Original>
+        <English>Enter the desired sound class for the siren</English>
+        <Czech>Enter the desired sound class for the siren</Czech>
+        <French>Enter the desired sound class for the siren</French>
+        <Spanish>Enter the desired sound class for the siren</Spanish>
+        <Italian>Enter the desired sound class for the siren</Italian>
+        <Polish>Enter the desired sound class for the siren</Polish>
+        <Portuguese>Enter the desired sound class for the siren</Portuguese>
+        <Russian>Введи класс звука для сирены</Russian>
+        <German>Enter the desired sound class for the siren</German>
+      </Key>
+      <Key ID="STR_RPS_RPREDEPLOYMENTCOOLDOWN_TOOLTIP">
+        <Original>Enter the duration (in seconds) for rally point redeployment cooldown</Original>
+        <English>Enter the duration (in seconds) for rally point redeployment cooldown</English>
+        <Czech>Enter the duration (in seconds) for rally point redeployment cooldown</Czech>
+        <French>Enter the duration (in seconds) for rally point redeployment cooldown</French>
+        <Spanish>Enter the duration (in seconds) for rally point redeployment cooldown</Spanish>
+        <Italian>Enter the duration (in seconds) for rally point redeployment cooldown</Italian>
+        <Polish>Enter the duration (in seconds) for rally point redeployment cooldown</Polish>
+        <Portuguese>Enter the duration (in seconds) for rally point redeployment cooldown</Portuguese>
+        <Russian>Введите длительность (в секундах) для задержки между развертываниями</Russian>
+        <German>Enter the duration (in seconds) for rally point redeployment cooldown</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTHOLDDURATION_TOOLTIP">
+        <Original>Enter the duration (in seconds) for which the teleporter remains disabled</Original>
+        <English>Enter the duration (in seconds) for which the teleporter remains disabled</English>
+        <Czech>Enter the duration (in seconds) for which the teleporter remains disabled</Czech>
+        <French>Enter the duration (in seconds) for which the teleporter remains disabled</French>
+        <Spanish>Enter the duration (in seconds) for which the teleporter remains disabled</Spanish>
+        <Italian>Enter the duration (in seconds) for which the teleporter remains disabled</Italian>
+        <Polish>Enter the duration (in seconds) for which the teleporter remains disabled</Polish>
+        <Portuguese>Enter the duration (in seconds) for which the teleporter remains disabled</Portuguese>
+        <Russian>Введите длительность (в секундах) преиода отключения телепорта</Russian>
+        <German>Enter the duration (in seconds) for which the teleporter remains disabled</German>
+      </Key>
+      <Key ID="STR_RPS_RPCLASS_DISPLAYNAME">
+        <Original>Rally point object class</Original>
+        <English>Rally point object class</English>
+        <Czech>Rally point object class</Czech>
+        <French>Rally point object class</French>
+        <Spanish>Rally point object class</Spanish>
+        <Italian>Rally point object class</Italian>
+        <Polish>Rally point object class</Polish>
+        <Portuguese>Rally point object class</Portuguese>
+        <Russian>Класс объекта точки развертывания</Russian>
+        <German>Rally point object class</German>
+      </Key>
+      <Key ID="STR_RPS_RPREDEPLOYMENTCOOLDOWN_DISPLAYNAME">
+        <Original>Redeployment cooldown</Original>
+        <English>Redeployment cooldown</English>
+        <Czech>Redeployment cooldown</Czech>
+        <French>Redeployment cooldown</French>
+        <Spanish>Redeployment cooldown</Spanish>
+        <Italian>Redeployment cooldown</Italian>
+        <Polish>Redeployment cooldown</Polish>
+        <Portuguese>Redeployment cooldown</Portuguese>
+        <Russian>Задержка развертывания</Russian>
+        <German>Redeployment cooldown</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTALARMSOUNDCLASS_DISPLAYNAME">
+        <Original>Siren sound class</Original>
+        <English>Siren sound class</English>
+        <Czech>Siren sound class</Czech>
+        <French>Siren sound class</French>
+        <Spanish>Siren sound class</Spanish>
+        <Italian>Siren sound class</Italian>
+        <Polish>Siren sound class</Polish>
+        <Portuguese>Siren sound class</Portuguese>
+        <Russian>Класс звука сирены</Russian>
+        <German>Siren sound class</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTALARM_DISPLAYNAME">
+        <Original>Siren</Original>
+        <English>Siren</English>
+        <Czech>Siren</Czech>
+        <French>Siren</French>
+        <Spanish>Siren</Spanish>
+        <Italian>Siren</Italian>
+        <Polish>Siren</Polish>
+        <Portuguese>Siren</Portuguese>
+        <Russian>Сирена</Russian>
+        <German>Siren</German>
+      </Key>
+	  <Key ID="STR_RPS_MODULE_DESCRIPTION_0">
+		<Original>Synchronize this module with the desired teleport object.</Original>
+		<English>Synchronize this module with the desired teleport object.</English>
+		<Russian>Синхронизируйте этот модуль с нужным объектом телепорта.</Russian>
+		<German>Synchronize this module with the desired teleport object.</German>
+		<French>Synchronize this module with the desired teleport object.</French>
+		<Spanish>Synchronize this module with the desired teleport object.</Spanish>
+		<Italian>Synchronize this module with the desired teleport object.</Italian>
+		<Polish>Synchronize this module with the desired teleport object.</Polish>
+		<Czech>Synchronize this module with the desired teleport object.</Czech>
+		<Portuguese>Synchronize this module with the desired teleport object.</Portuguese>
+	  </Key>
+	  <Key ID="STR_RPS_MODULE_DESCRIPTION_1">
+		<Original>The teleport object will enable the use of the rally point system.</Original>
+		<English>The teleport object will enable the use of the rally point system.</English>
+		<Russian>Объект телепорта активирует систему точек развертывания.</Russian>
+		<German>The teleport object will enable the use of the rally point system.</German>
+		<French>The teleport object will enable the use of the rally point system.</French>
+		<Spanish>The teleport object will enable the use of the rally point system.</Spanish>
+		<Italian>The teleport object will enable the use of the rally point system.</Italian>
+		<Polish>The teleport object will enable the use of the rally point system.</Polish>
+		<Czech>The teleport object will enable the use of the rally point system.</Czech>
+		<Portuguese>The teleport object will enable the use of the rally point system.</Portuguese>
+	  </Key>
+	  <Key ID="STR_RPS_MODULE_DESCRIPTION_2">
+		<Original>Will not work if none or more than one object are synced.</Original>
+		<English>Will not work if none or more than one object are synced.</English>
+		<Russian>Не будет работать, если не синхронизирован ни один или более одного объекта.</Russian>
+		<German>Will not work if none or more than one object are synced.</German>
+		<French>Will not work if none or more than one object are synced.</French>
+		<Spanish>Will not work if none or more than one object are synced.</Spanish>
+		<Italian>Will not work if none or more than one object are synced.</Italian>
+		<Polish>Will not work if none or more than one object are synced.</Polish>
+		<Czech>Will not work if none or more than one object are synced.</Czech>
+		<Portuguese>Will not work if none or more than one object are synced.</Portuguese>
+	  </Key>
+	  <Key ID="STR_RPS_MODULE_DESCRIPTION_3">
+		<Original>TvT compatibility has not been tested.</Original>
+		<English>TvT compatibility has not been tested.</English>
+		<Russian>Совместимость с TvT не тестировалась.</Russian>
+		<German>TvT compatibility has not been tested.</German>
+		<French>TvT compatibility has not been tested.</French>
+		<Spanish>TvT compatibility has not been tested.</Spanish>
+		<Italian>TvT compatibility has not been tested.</Italian>
+		<Polish>TvT compatibility has not been tested.</Polish>
+		<Czech>TvT compatibility has not been tested.</Czech>
+		<Portuguese>TvT compatibility has not been tested.</Portuguese>
+	  </Key>
+    </Container>
   </Package>
 </Project>
