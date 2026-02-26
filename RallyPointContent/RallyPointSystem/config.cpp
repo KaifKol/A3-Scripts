@@ -2,9 +2,15 @@ class CfgPatches
 {
 	class RallyPointC_RallyPointSystem
 	{
-		units[] = { "RallyPointC_RallyPointSystem" };
-		requiredVersion = 1.0;
-		requiredAddons[] = { "A3_Modules_F" };
+		units[]=
+		{
+			"RallyPointC_RallyPointSystem"
+		};
+		requiredVersion=1;
+		requiredAddons[]=
+		{
+			"A3_Modules_F"
+		};
 	};
 };
 class CfgFactionClasses
@@ -12,7 +18,7 @@ class CfgFactionClasses
 	class NO_CATEGORY;
 	class RallyPointC_Modules: NO_CATEGORY
 	{
-		displayName = "RallyPoint Modules";
+		displayName="RallyPoint Modules";
 	};
 };
 class CfgFunctions
@@ -21,14 +27,28 @@ class CfgFunctions
 	{
 		class RallyPointSystem
 		{
-			file = "RallyPointSystem\functions";
-			class RP_init {};
-			class RP_getLeaders {};
-			class RP_getSubs {};
-			class RP_processRallyClock {};
-			class RP_spawnRallypoint {};
-			class RP_handleTeleportRequest {};
-			class RP_checkCollision {};
+			file="RallyPointSystem\functions";
+			class RP_init
+			{
+			};
+			class RP_getLeaders
+			{
+			};
+			class RP_getSubs
+			{
+			};
+			class RP_processRallyClock
+			{
+			};
+			class RP_spawnRallypoint
+			{
+			};
+			class RP_handleTeleportRequest
+			{
+			};
+			class RP_checkCollision
+			{
+			};
 		};
 	};
 };
@@ -52,7 +72,7 @@ class CfgVehicles
 	};
 	class RallyPointC_RallyPointSystem: Module_F
 	{
-		scope = 2;
+		scope=2;
 		displayName="Rally Point System";
 		category="RallyPointC_Modules";
 		function="RallyPointC_fnc_RP_init";
@@ -68,75 +88,82 @@ class CfgVehicles
 		{
 			class Units: Units
 			{
-				property = "RPS_Units";
+				property="RPS_Units";
 			};
 			class RPS_rpClass: Edit
 			{
-				displayName = "Rally point object class";
-				tooltip = "Enter the class name of the object to be used as the rally point";
-				property = "RPS_rpClass";
-				typeName = "STRING";
-				defaultValue = """Land_TentSolar_01_folded_sand_F""";
+				displayName="$STR_RPS_RPCLASS_DISPLAYNAME";
+				tooltip="$STR_RPS_RPCLASS_TOOLTIP";
+				property="RPS_rpClass";
+				typeName="STRING";
+				defaultValue="""Land_TentSolar_01_folded_sand_F""";
 			};
 			class RPS_teleportHoldDuration: Edit
 			{
-				displayName = "Deactivation duration";
-				tooltip = "Enter the duration (in seconds) for which the teleporter remains disabled";
-				property = "RPS_teleportHoldDuration";
-				typeName = "NUMBER";
-				defaultValue = "120";
+				displayName="$STR_RPS_TELEPORTHOLDDURATION_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTHOLDDURATION_TOOLTIP";
+				property="RPS_teleportHoldDuration";
+				typeName="NUMBER";
+				defaultValue="120";
 			};
 			class RPS_teleportWindowDuration: Edit
 			{
-				displayName = "Activation duration";
-				tooltip = "Enter the duration (in seconds) for which the teleporter remains active";
-				property = "RPS_teleportWindowDuration";
-				typeName = "NUMBER";
-				defaultValue = "20";
+				displayName="$STR_RPS_TELEPORTWINDOWDURATION_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTWINDOWDURATION_TOOLTIP";
+				property="RPS_teleportWindowDuration";
+				typeName="NUMBER";
+				defaultValue="20";
 			};
-			class RPS_teleportInitialActivationDelay: Edit 
+			class RPS_teleportInitialActivationDelay: Edit
 			{
-				displayName = "Initial Activation Delay";
-				tooltip = "Enter the duration (in seconds) for which the teleporter remains disabled at start of the mission";
-				property = "RPS_teleportInitialActivationDelay";
-				typeName = "NUMBER";
-				defaultValue = "300"
+				displayName="$STR_RPS_TELEPORTINITIALACTIVATIONDELAY_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTINITIALACTIVATIONDELAY_TOOLTIP";
+				property="RPS_teleportInitialActivationDelay";
+				typeName="NUMBER";
+				defaultValue="300";
 			};
-			class RPS_rpRedeploymentCooldown: Edit 
+			class RPS_rpRedeploymentCooldown: Edit
 			{
-				displayName = "Redeployment cooldown";
-				tooltip = "Enter the duration (in seconds) for rally point redeployment cooldown";
-				property = "RPS_rpRedeploymentCooldown";
-				typeName = "NUMBER";
-				defaultValue = "300"
+				displayName="$STR_RPS_RPREDEPLOYMENTCOOLDOWN_DISPLAYNAME";
+				tooltip="$STR_RPS_RPREDEPLOYMENTCOOLDOWN_TOOLTIP";
+				property="RPS_rpRedeploymentCooldown";
+				typeName="NUMBER";
+				defaultValue="300";
 			};
-            class RPS_teleportAlarm: Checkbox
-            {
-                displayName = "Siren";
-                tooltip = "Enable siren sound when teleport is activated?";
-                property = "RPS_teleportAlarm";
-                typeName = "BOOLEAN";
-                defaultValue = "TRUE"
-            };
-            class RPS_teleportAlarmSoundClass: Edit
-            {
-                displayName = "Siren sound class";
-				tooltip = "Enter the desired sound class for the siren";
-				property = "RPS_teleportAlarmSoundClass";
-				typeName = "STRING";
-				defaultValue = """Sound_Alarm"""
-            };
-			class ModuleDescription: ModuleDescription {};
+			class RPS_teleportAlarm: Checkbox
+			{
+				displayName="$STR_RPS_TELEPORTALARM_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTALARM_TOOLTIP";
+				property="RPS_teleportAlarm";
+				typeName="BOOLEAN";
+				defaultValue="true";
+			};
+			class RPS_teleportAlarmSoundClass: Edit
+			{
+				displayName="$STR_RPS_TELEPORTALARMSOUNDCLASS_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTALARMSOUNDCLASS_TOOLTIP";
+				property="RPS_teleportAlarmSoundClass";
+				typeName="STRING";
+				defaultValue="""Sound_Alarm""";
+			};
+			class ModuleDescription: ModuleDescription
+			{
+			};
 		};
 		class ModuleDescription: ModuleDescription
 		{
-			description[] =
+			description[]=
 			{
-				"Synchronize this module with the desired teleport object.",
-				"The teleport object will enable the use of the rally point system.",
-				"Will not work if none or more than one object are synced.",
-               	"TvT compatibility has not been tested."
+				"$STR_RPS_MODULE_DESCRIPTION_0",
+				"$STR_RPS_MODULE_DESCRIPTION_1",
+				"$STR_RPS_MODULE_DESCRIPTION_2",
+				"$STR_RPS_MODULE_DESCRIPTION_3"
 			};
 		};
 	};
+};
+class cfgMods
+{
+	author="Mogoff";
+	timepacked="1770848355";
 };
