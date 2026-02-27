@@ -13,9 +13,10 @@
 */ 
 params["_alarm","_sound","_delay"];
 
-uiSleep _delay;
+diag_log "[RPC_RPS] processRallyClock started";
 
-missionNamespace setVariable ["RP_respawnHold",false];
+uiSleep _delay;
+missionNamespace setVariable ["RP_respawnHold",false,true];
 teleportHoldDuration = missionNamespace getVariable "RP_respawnHold_duration";
 teleportClosingTime = teleportHoldDuration + (missionNamespace getVariable "RP_respawn_windowDuration");
 baseObj = missionNamespace getVariable ["RP_base_object_variable",objNull];
@@ -24,9 +25,9 @@ release = true;
 counter = 0;
 
 while {true} do {
-	missionNamespace setVariable ["RP_respawnHold_counter",counter];
+	missionNamespace setVariable ["RP_respawnHold_counter",counter,true];
 	if ((counter>=teleportHoldDuration) and release) then {
-		missionNamespace setVariable ["RP_respawnHold",true];
+		missionNamespace setVariable ["RP_respawnHold",true,true];
 		release = false;
 		[_alarm,_sound] spawn {
 			if (_this select 0) then {alarm = createSoundSourceLocal [_this select 1, position baseObj, [], 0];};
@@ -36,7 +37,7 @@ while {true} do {
 	}; 
 
 	if ((counter>=teleportClosingTime) and !release) then {
-		missionNamespace setVariable ["RP_respawnHold",false];
+		missionNamespace setVariable ["RP_respawnHold",false,true];
 		release = true;
 		counter = 0;
 	};
