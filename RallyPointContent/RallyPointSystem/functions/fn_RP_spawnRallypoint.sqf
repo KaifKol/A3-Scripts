@@ -14,26 +14,8 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params ["_target", "_caller","_cooldown"];
 
-fn_rp_redeploymentCooldown  = {
-    params ["_c"];
-            
-    missionNamespace setVariable ["RP_redeployment_cooldown", true, true];
-    private _endTime = time + _c;
-            
-    while {time < _endTime && (missionNamespace getVariable "RP_redeployment_cooldown")} do {
-        missionNamespace setVariable [
-            "RP_redeployment_cooldown_remTime", 
-            ceil (_endTime - time),
-            true
-        ];
-        sleep 1;
-    };
-    missionNamespace setVariable ["RP_redeployment_cooldown", false, true];
-    missionNamespace setVariable ["RP_redeployment_cooldown_remTime", 0, true];   
-};
-
-if (missionNamespace getVariable "RP_redeployment_cooldown") exitWith {
-    hintSilent parseText format ["Равертывание новой точки будет доступно через %1 сек.",missionNamespace getVariable "RP_redeployment_cooldown_remTime"];
+if (_target getVariable ["RP_redeployment_cooldown", false]) exitWith {
+    hintSilent parseText format ["Развертывание новой точки будет доступно через %1 сек.",_target getVariable ["RP_redeployment_cooldown_remTime", 0]];
 };
 if (_target getVariable ["RP_player_isRPinstalled",false]) exitWith {hint "Точка развертывания уже активна"};
 
@@ -149,8 +131,25 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
 		_caller setVariable ["RP_object",_realObj,true];
 
         // Redeployment cooldown
-        [_cooldown] call fn_rp_redeploymentCooldown;
-		
+        // Redeployment cooldown — локально для этого лидера
+        _caller setVariable ["RP_redeployment_cooldown", true];
+        [_caller, (missionNamespace getVariable "RP_vrotebalrepickcd")] spawn {
+            params ["_unit", "_cooldown"];
+            
+            private _endTime = time + _cooldown;
+            
+            while {time < _endTime} do {
+                _unit setVariable [
+                    "RP_redeployment_cooldown_remTime",
+                    ceil (_endTime - time)
+                ];
+                sleep 1;
+            };
+            
+            _unit setVariable ["RP_redeployment_cooldown", false];
+            _unit setVariable ["RP_redeployment_cooldown_remTime", 0];
+        };
+                
         // Create rallypoint 
         _caller addAction [
             "<t color='#FF5555'>Удалить точку развертывания</t>",
@@ -166,7 +165,7 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
             false,
             true,
             "",
-            "!(missionNamespace getVariable 'RP_redeployment_cooldown')"
+            "!(_target getVariable ['RP_redeployment_cooldown', false])"
         ];
     };
 };
