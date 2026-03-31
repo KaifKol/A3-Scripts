@@ -146,6 +146,22 @@ class CfgVehicles
 				typeName="STRING";
 				defaultValue="""Sound_Alarm""";
 			};
+			class RPS_teleportRadius: Edit
+			{
+				displayName="$STR_RPS_TELEPORTRADIUS_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTRADIUS_TOOLTIP";
+				property="RPS_teleportRadius";
+				typeName="NUMBER";
+				defaultValue="5";
+			};
+			class RPS_teleportColliderRadius: Edit
+			{
+				displayName="$STR_RPS_TELEPORTCOLLIDERRADIUS_DISPLAYNAME";
+				tooltip="$STR_RPS_TELEPORTCOLLIDERRADIUS_TOOLTIP";
+				property="RPS_teleportColliderRadius";
+				typeName="NUMBER";
+				defaultValue="2";
+			};
 			class ModuleDescription: ModuleDescription
 			{
 			};

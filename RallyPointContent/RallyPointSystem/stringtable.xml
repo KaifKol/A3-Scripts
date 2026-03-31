@@ -170,6 +170,54 @@
         <Russian>Сирена</Russian>
         <German>Siren</German>
       </Key>
+      <Key ID="STR_RPS_TELEPORTRADIUS_DISPLAYNAME">
+        <Original>Teleport radius</Original>
+        <English>Teleport radius</English>
+        <Czech>Teleport radius</Czech>
+        <French>Teleport radius</French>
+        <Spanish>Teleport radius</Spanish>
+        <Italian>Teleport radius</Italian>
+        <Polish>Teleport radius</Polish>
+        <Portuguese>Teleport radius</Portuguese>
+        <Russian>Радиус телепорта</Russian>
+        <German>Teleport radius</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTRADIUS_TOOLTIP">
+        <Original>Defines at which maximum distance from rallypoint person will be teleported</Original>
+        <English>Defines at which maximum distance from rallypoint person will be teleported</English>
+        <Czech>Defines at which maximum distance from rallypoint person will be teleported</Czech>
+        <French>Defines at which maximum distance from rallypoint person will be teleported</French>
+        <Spanish>Defines at which maximum distance from rallypoint person will be teleported</Spanish>
+        <Italian>Defines at which maximum distance from rallypoint person will be teleported</Italian>
+        <Polish>Defines at which maximum distance from rallypoint person will be teleported</Polish>
+        <Portuguese>Defines at which maximum distance from rallypoint person will be teleported</Portuguese>
+        <Russian>Задает максимальное расстояние от точки сборка, на которое игрок будет телепортирован</Russian>
+        <German>Defines at which maximum distance from rallypoint person will be teleported</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTCOLLIDERRADIUS_DISPLAYNAME">
+        <Original>Teleport collider radius</Original>
+        <English>Teleport collider radius</English>
+        <Czech>Teleport collider radius</Czech>
+        <French>Teleport collider radius</French>
+        <Spanish>Teleport collider radius</Spanish>
+        <Italian>Teleport collider radius</Italian>
+        <Polish>Teleport collider radiuss</Polish>
+        <Portuguese>Teleport collider radius</Portuguese>
+        <Russian>Радиус коллайдера телепорта</Russian>
+        <German>Teleport collider radius</German>
+      </Key>
+      <Key ID="STR_RPS_TELEPORTCOLLIDERRADIUS_TOOLTIP">
+        <Original>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Original>
+        <English>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</English>
+        <Czech>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Czech>
+        <French>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</French>
+        <Spanish>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Spanish>
+        <Italian>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Italian>
+        <Polish>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Polish>
+        <Portuguese>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</Portuguese>
+        <Russian>Задает радиус сферы вокруг игрока, которая предотвращает телепортацию внутрь помещений</Russian>
+        <German>Defines the radius of sphere that circumscribes the player used to prevent teleporting players inside buildings</German>
+      </Key>
 	  <Key ID="STR_RPS_MODULE_DESCRIPTION_0">
 		<Original>Synchronize this module with the desired teleport object.</Original>
 		<English>Synchronize this module with the desired teleport object.</English>
