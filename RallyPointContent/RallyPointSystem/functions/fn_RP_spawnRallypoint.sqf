@@ -14,10 +14,12 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params ["_target", "_caller","_cooldown"];
 
-if (_target getVariable ["RP_redeployment_cooldown", false]) exitWith {
-    hintSilent parseText format ["Развертывание новой точки будет доступно через %1 сек.",_target getVariable ["RP_redeployment_cooldown_remTime", 0]];
+private _groupRP (group _caller) getVariable ["RP_object",objNull];
+
+if ((group _target) getVariable ["RP_redeployment_cooldown", false]) exitWith {
+    hintSilent parseText format ["Развертывание новой точки будет доступно через %1 сек.",(group _target) getVariable ["RP_redeployment_cooldown_remTime", 0]];
 };
-if (_target getVariable ["RP_player_isRPinstalled",false]) exitWith {hint "Точка развертывания уже активна"};
+if (!(_groupRP isEqualTo objNull)) exitWith {hint "Точка развертывания уже активна"};
 
 waitUntil { !isNull (findDisplay 46) };
 
@@ -97,7 +99,7 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
 				_finalPos = _pos;
 				_finalDir = missionNamespace getVariable ["RP_rotation",0];
 				_placementActive = false;
-				_target setVariable ["RP_player_isRPinstalled",true];
+				(group _target) setVariable ["RP_player_isRPinstalled",true];
 			} else {
 				hint "Невозможно разместить";
 			};
@@ -121,6 +123,7 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
 	
     // Deployment on confirmation
     if (!isNil "_finalPos" && {!isNil "_finalDir"}) then {
+        if (!(_groupRP isEqualTo objNull)) then {deleteVehicle _groupRP;};
         private _realObj = createVehicle [RP_RallyPoint_object_class, _finalPos, [], 0, "CAN_COLLIDE"];
         _realObj setDir _finalDir;
         _realObj setVectorUp surfaceNormal _finalPos;
@@ -128,26 +131,28 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
         _realObj enableSimulationGlobal true;
         _realObj allowDamage true;
 		_caller forceWalk false;
-		_caller setVariable ["RP_object",_realObj,true];
+
+        (group _caller) setVariable ["RP_object",_realObj,true];
+        (group _caller) setVariable ["RP_player_isRPInstalled",true,true]
 
         // Redeployment cooldown
         // Redeployment cooldown — локально для этого лидера
-        _caller setVariable ["RP_redeployment_cooldown", true];
+        (group _caller) setVariable ["RP_redeployment_cooldown", true];
         [_caller, (missionNamespace getVariable "RP_vrotebalrepickcd")] spawn {
             params ["_unit", "_cooldown"];
             
             private _endTime = time + _cooldown;
             
             while {time < _endTime} do {
-                _unit setVariable [
+                (group _unit) setVariable [
                     "RP_redeployment_cooldown_remTime",
                     ceil (_endTime - time)
                 ];
                 sleep 1;
             };
             
-            _unit setVariable ["RP_redeployment_cooldown", false];
-            _unit setVariable ["RP_redeployment_cooldown_remTime", 0];
+            (group _unit) setVariable ["RP_redeployment_cooldown", false];
+            (group _unit) setVariable ["RP_redeployment_cooldown_remTime", 0];
         };
                 
         // Create rallypoint 
@@ -155,8 +160,8 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
             "<t color='#FF5555'>Удалить точку развертывания</t>",
             {
 				params ["_targetn", "_callern", "_actionIdn", "_argumentsn"];
-				_targetn setVariable ["RP_player_isRPinstalled",false];
-				_targetn setVariable ["RP_object",objNull,true];
+				(group _targetn) setVariable ["RP_player_isRPinstalled",false];
+				(group _targetn) setVariable ["RP_object",objNull,true];
                 deleteVehicle (_this select 3);
 				_targetn removeAction _actionIdn;
             },
@@ -165,7 +170,7 @@ if (local _caller && alive _caller && !(_caller in vehicles) && isNull attachedT
             false,
             true,
             "",
-            "!(_target getVariable ['RP_redeployment_cooldown', false])"
+            "!((group _target) getVariable ['RP_redeployment_cooldown', false])"
         ];
     };
 };
