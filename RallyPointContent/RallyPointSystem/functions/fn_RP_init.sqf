@@ -23,6 +23,8 @@ Teleport_window_duration = _logic getVariable ["RPS_teleportWindowDuration",20];
 Teleport_alarm = _logic getVariable ["RPS_teleportAlarm",True];
 Teleport_alarm_sound_class = _logic getVariable ["RPS_teleportAlarmSoundClass","Sound_Alarm"];
 Teleport_initialActivationDelay = _logic getVariable ["RPS_teleportInitialActivationDelay",300];
+Teleport_Radius = _logic getVariable ["RPS_teleportRadius",5];
+Teleport_colliderRadius = _logc getVariable ["RPS_teleportColliderRadius",2];
 
 missionNamespace setVariable ["RP_respawnHold", false, true];
 missionNamespace setVariable ["RP_redeployment_cooldown", false, true];
@@ -105,7 +107,7 @@ fn_rp_clientSetup = {
 			{
 				params ["_target", "_caller", "_actionId", "_arguments"];
 				private _myLeader = leader group _caller;
-				[_caller, _myLeader] call RallyPointC_fnc_RP_handleTeleportRequest;
+				[_caller, _myLeader,Teleport_Radius,Teleport_colliderRadius] call RallyPointC_fnc_RP_handleTeleportRequest;
 			},
 			nil,
 			1.5,
