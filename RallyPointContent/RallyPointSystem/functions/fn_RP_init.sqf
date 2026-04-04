@@ -24,7 +24,7 @@ Teleport_alarm = _logic getVariable ["RPS_teleportAlarm",True];
 Teleport_alarm_sound_class = _logic getVariable ["RPS_teleportAlarmSoundClass","Sound_Alarm"];
 Teleport_initialActivationDelay = _logic getVariable ["RPS_teleportInitialActivationDelay",300];
 Teleport_Radius = _logic getVariable ["RPS_teleportRadius",5];
-Teleport_colliderRadius = _logc getVariable ["RPS_teleportColliderRadius",2];
+Teleport_colliderRadius = _logic getVariable ["RPS_teleportColliderRadius",2];
 
 missionNamespace setVariable ["RP_respawnHold", false, true];
 missionNamespace setVariable ["RP_redeployment_cooldown", false, true];
