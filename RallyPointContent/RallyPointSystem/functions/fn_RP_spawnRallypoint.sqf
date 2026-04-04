@@ -14,7 +14,7 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params ["_target", "_caller","_cooldown"];
 
-private _groupRP (group _caller) getVariable ["RP_object",objNull];
+private _groupRP = (group _caller) getVariable ["RP_object",objNull];
 
 if ((group _target) getVariable ["RP_redeployment_cooldown", false]) exitWith {
     hintSilent parseText format ["Развертывание новой точки будет доступно через %1 сек.",(group _target) getVariable ["RP_redeployment_cooldown_remTime", 0]];
